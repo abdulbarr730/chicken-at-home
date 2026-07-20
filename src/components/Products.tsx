@@ -29,7 +29,10 @@ export default function Products() {
     "https://wa.me/919204810544?text=Hi%20I%20want%20to%20order%20fresh%20chicken";
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section
+        id="products"
+        className="py-16 md:py-24 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-5 md:px-6">
         {/* Heading */}
 
