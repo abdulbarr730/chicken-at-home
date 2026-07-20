@@ -8,19 +8,19 @@ const products = [
     title: "Whole Chicken",
     description: "Fresh whole chicken, cleaned and packed hygienically.",
     image: "/products/whole-chicken.jpg",
-    price: "₹280/kg",
+    
   },
   {
     title: "Curry Cut",
     description: "Perfectly cut pieces for your favorite curry recipes.",
     image: "/products/curry-cut.jpg",
-    price: "₹320/kg",
+    
   },
   {
     title: "Boneless",
     description: "Premium boneless chicken breast and thigh pieces.",
     image: "/products/boneless.jpg",
-    price: "₹420/kg",
+    
   },
 ];
 
@@ -87,7 +87,6 @@ export default function Products() {
                   </h3>
 
                   <span className="text-lg font-bold text-green-700">
-                    {product.price}
                   </span>
                 </div>
 
