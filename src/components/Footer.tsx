@@ -13,27 +13,27 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-950 text-white">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 py-16 md:py-20">
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
+        {/* Main Footer */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.2fr_1.2fr]">
 
           {/* Brand */}
 
           <div>
 
-            <h3 className="text-3xl font-black">
-              ChickenAtHome
+            <h3 className="text-3xl md:text-4xl font-black whitespace-nowrap">
+              Chicken<span className="text-green-500">AtHome</span>
             </h3>
 
-            <p className="text-slate-400 mt-6 leading-8">
-              Fresh chicken delivered across Muzaffarpur.
-              We cut your chicken only after your order is confirmed,
-              hygienically clean it, carefully pack it, and deliver it
-              straight to your doorstep.
+            <p className="mt-5 max-w-sm text-slate-400 leading-7 text-sm md:text-base">
+              Fresh chicken delivered across Muzaffarpur. Every order is freshly
+              cut after confirmation, hygienically cleaned, carefully packed,
+              and delivered straight to your doorstep.
             </p>
 
-            <div className="flex gap-5 mt-8">
+            <div className="flex gap-4 mt-8">
 
               <a
                 href="https://www.instagram.com/chikkenathome.official?igsh=dDEwajc3dWx5a3d6"
@@ -81,7 +81,7 @@ export default function Footer() {
               Quick Links
             </h4>
 
-            <ul className="space-y-4 mt-8 text-slate-400">
+            <ul className="mt-6 space-y-4 text-slate-400">
 
               <li>
                 <a
@@ -94,19 +94,19 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#process"
+                  href="#products"
                   className="hover:text-green-400 transition"
                 >
-                  How It Works
+                  Products
                 </a>
               </li>
 
               <li>
                 <a
-                  href="#areas"
+                  href="#process"
                   className="hover:text-green-400 transition"
                 >
-                  Delivery Areas
+                  How It Works
                 </a>
               </li>
 
@@ -123,24 +123,27 @@ export default function Footer() {
 
           </div>
 
-          {/* Delivery Areas */}
+          {/* Why Us */}
 
           <div>
 
             <h4 className="text-xl font-bold">
-              Delivery Areas
+              Why ChickenAtHome?
             </h4>
 
-            <ul className="space-y-3 mt-8 text-slate-400">
+            <ul className="mt-6 space-y-3 text-slate-400">
 
-              <li>Brahmpura</li>
-              <li>Mithanpura</li>
-              <li>Motijheel</li>
-              <li>Kalyani</li>
-              <li>Club Road</li>
-              <li>Aghoria Bazar</li>
-              <li>Kalambagh Road</li>
-              <li>Jawahar Lal Road</li>
+              <li>✓ Freshly Cut After Order</li>
+
+              <li>✓ 100% Hygienic Preparation</li>
+
+              <li>✓ Premium Packaging</li>
+
+              <li>✓ Same Day Delivery</li>
+
+              <li>✓ Affordable Pricing</li>
+
+              <li>✓ Trusted by Families</li>
 
             </ul>
 
@@ -154,7 +157,7 @@ export default function Footer() {
               Contact Us
             </h4>
 
-            <div className="mt-8 space-y-5 text-slate-400">
+            <div className="mt-6 space-y-5 text-slate-400">
 
               <div>
 
@@ -177,9 +180,7 @@ export default function Footer() {
                   Location
                 </p>
 
-                <p>
-                  Muzaffarpur, Bihar
-                </p>
+                <p>Muzaffarpur, Bihar</p>
 
               </div>
 
@@ -187,11 +188,11 @@ export default function Footer() {
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-xl bg-green-700 hover:bg-green-800 px-6 py-3 font-semibold text-white transition"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-green-700 hover:bg-green-800 px-6 py-3 font-semibold transition"
               >
                 <FaWhatsapp />
 
-                WhatsApp Order
+                Order On WhatsApp
               </a>
 
             </div>
@@ -202,21 +203,25 @@ export default function Footer() {
 
         {/* Bottom */}
 
-        <div className="border-t border-slate-800 mt-20 pt-8">
+        <div className="mt-14 border-t border-slate-800 pt-8">
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
 
-            <p className="text-slate-500 text-center lg:text-left">
+            <p className="text-center md:text-left text-sm text-slate-500">
               © 2026 ChickenAtHome. All Rights Reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+            <div className="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-slate-500">
 
               <span>Freshly Cut</span>
 
+              <span>•</span>
+
               <span>Hygienically Packed</span>
 
-              <span>Fast Home Delivery</span>
+              <span>•</span>
+
+              <span>Same Day Delivery</span>
 
             </div>
 
@@ -225,7 +230,6 @@ export default function Footer() {
         </div>
 
       </div>
-
     </footer>
   );
 }

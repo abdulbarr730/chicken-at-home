@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import WhyTrustUs from "@/components/WhyTrustUs";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       <WhyChooseUs />
       <HowItWorks />
       <Promise />
-      <DeliveryAreas />
+      <WhyTrustUs />
       <Reviews />
       <Products />
       <FAQ />

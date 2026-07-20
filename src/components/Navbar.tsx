@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const whatsapp =
@@ -20,109 +20,104 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <>
-      {/* Top Bar */}
+  const links = [
+    { label: "Why Us", href: "#why" },
+    { label: "Products", href: "#products" },
+    { label: "Process", href: "#process" },
+    { label: "FAQ", href: "#faq" },
+  ];
 
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-green-700 text-white text-center py-2 text-sm">
-        Fresh Chicken Delivered Across Muzaffarpur 🚚
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-white shadow"
+      }`}
+    >
+      {/* Top Announcement Bar */}
+
+      <div className="bg-green-700 text-white text-center text-xs md:text-sm py-2 px-4">
+        🚚 Fresh Chicken Delivered Across Muzaffarpur
       </div>
 
-      {/* Navbar */}
+      {/* Main Navbar */}
 
-      <nav
-        className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-lg"
-            : "bg-white"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
+      <div className="max-w-7xl mx-auto px-5 md:px-6">
+        <div className="h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
 
-          <div className="font-black text-2xl tracking-tight">
-            ChickenAtHome
-          </div>
+          <a
+            href="#"
+            className="text-2xl md:text-4xl font-black text-slate-900"
+          >
+            Chicken<span className="text-green-700">AtHome</span>
+          </a>
 
-          {/* Desktop Menu */}
+          {/* Desktop Navigation */}
 
-          <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#why"
-              className="hover:text-green-700 transition"
-            >
-              Why Us
-            </a>
-
-            <a
-              href="#process"
-              className="hover:text-green-700 transition"
-            >
-              Process
-            </a>
-
-            <a
-              href="#areas"
-              className="hover:text-green-700 transition"
-            >
-              Areas
-            </a>
-
-            <a
-              href="#faq"
-              className="hover:text-green-700 transition"
-            >
-              FAQ
-            </a>
+          <nav className="hidden lg:flex items-center gap-10">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="font-medium text-slate-700 hover:text-green-700 transition"
+              >
+                {link.label}
+              </a>
+            ))}
 
             <a
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-700 text-white px-5 py-3 rounded-xl font-semibold hover:bg-green-800 transition"
+              className="rounded-xl bg-green-700 px-7 py-3 font-bold text-white transition hover:bg-green-800"
             >
               Order Now
             </a>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
 
           <button
-            className="md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setOpen(!open)}
+            className="lg:hidden rounded-lg border p-2"
+            aria-label="Toggle Menu"
           >
-            {menuOpen ? <X /> : <Menu />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu */}
 
-        {menuOpen && (
-          <div className="bg-white border-t md:hidden">
-            <div className="p-6 flex flex-col gap-4">
+      <div
+        className={`overflow-hidden transition-all duration-300 lg:hidden ${
+          open ? "max-h-96 border-t" : "max-h-0"
+        }`}
+      >
+        <div className="space-y-5 bg-white px-5 py-5">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block font-medium text-slate-700"
+            >
+              {link.label}
+            </a>
+          ))}
 
-              <a href="#why">Why Us</a>
-
-              <a href="#process">Process</a>
-
-              <a href="#areas">Areas</a>
-
-              <a href="#faq">FAQ</a>
-
-              <a
-                href={whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-700 text-white text-center py-3 rounded-xl"
-              >
-                Order Now
-              </a>
-
-            </div>
-          </div>
-        )}
-      </nav>
-    </>
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-xl bg-green-700 py-3 text-center font-bold text-white"
+          >
+            Order On WhatsApp
+          </a>
+        </div>
+      </div>
+    </header>
   );
 }

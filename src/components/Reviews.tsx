@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Quote, Star } from "lucide-react";
 
 const reviews = [
   {
@@ -37,67 +38,93 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section className="py-28 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 md:py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-5 md:px-6">
 
-        <div className="text-center">
+        {/* Heading */}
 
-          <span className="text-green-700 font-semibold tracking-wider">
+        <div className="text-center max-w-3xl mx-auto">
+
+          <span className="inline-flex px-4 py-2 rounded-full bg-green-100 text-green-700 text-xs md:text-sm font-semibold">
             VERIFIED CUSTOMERS
           </span>
 
-          <h2 className="text-5xl md:text-6xl font-black mt-4">
-            What Our Customers Say
+          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
+            What Our
+            <span className="block text-green-700">
+              Customers Say
+            </span>
           </h2>
 
-          <p className="text-slate-600 mt-6 max-w-2xl mx-auto">
-            Trusted by customers across Muzaffarpur.
+          <p className="mt-5 text-base md:text-lg text-slate-600 leading-7">
+            Fresh chicken. Happy families. Here's what our customers have to say
+            about ChickenAtHome.
           </p>
 
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mt-16">
+        {/* Reviews */}
+
+        <div className="grid gap-6 md:grid-cols-2 mt-12 md:mt-16">
 
           {reviews.map((review, index) => (
             <motion.div
               key={review.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{
-                duration: 0.45,
+                duration: 0.5,
                 delay: index * 0.1,
               }}
-              viewport={{ once: true }}
               whileHover={{
-                y: -8,
+                y: -6,
               }}
-              className={`rounded-[32px] border bg-white shadow-lg hover:shadow-2xl transition p-8 ${
+              className={`rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 ${
                 index === reviews.length - 1
-                  ? "lg:col-span-2 bg-gradient-to-r from-green-50 to-white"
+                  ? "md:col-span-2 bg-gradient-to-r from-green-50 to-white"
                   : ""
               }`}
             >
-              <div className="flex justify-between items-start">
+              {/* Header */}
+
+              <div className="flex items-start justify-between gap-4">
 
                 <div>
 
-                  <h3 className="font-bold text-2xl">
-                    {review.name}
-                  </h3>
+                  <div className="flex items-center gap-3">
 
-                  <p className="text-slate-500 mt-1">
-                    📍 {review.location}
-                  </p>
+                    <div className="w-12 h-12 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">
+                      {review.name.charAt(0)}
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold">
+                        {review.name}
+                      </h3>
+
+                      <p className="text-sm text-slate-500">
+                        📍 {review.location}
+                      </p>
+                    </div>
+
+                  </div>
 
                 </div>
 
-                <div className="text-right">
+                <div className="text-right flex-shrink-0">
 
-                  <div className="text-yellow-500 text-lg">
-                    ⭐⭐⭐⭐⭐
+                  <div className="flex justify-end gap-1 text-yellow-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={16}
+                        fill="currentColor"
+                      />
+                    ))}
                   </div>
 
-                  <span className="inline-block mt-2 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+                  <span className="inline-block mt-2 rounded-full bg-green-100 px-3 py-1 text-[11px] md:text-xs font-semibold text-green-700">
                     Verified Customer
                   </span>
 
@@ -105,11 +132,18 @@ export default function Reviews() {
 
               </div>
 
+              {/* Quote */}
+
+              <Quote
+                size={30}
+                className="text-green-200 mt-6"
+              />
+
               <p
-                className={`italic text-slate-600 leading-8 mt-8 ${
+                className={`mt-4 text-slate-600 leading-7 md:leading-8 italic ${
                   index === reviews.length - 1
-                    ? "text-lg"
-                    : ""
+                    ? "text-base md:text-lg"
+                    : "text-sm md:text-base"
                 }`}
               >
                 "{review.review}"
